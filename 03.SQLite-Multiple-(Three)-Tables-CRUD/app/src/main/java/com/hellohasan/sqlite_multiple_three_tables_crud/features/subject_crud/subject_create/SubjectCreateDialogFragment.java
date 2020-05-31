@@ -20,8 +20,6 @@ import com.hellohasan.sqlite_multiple_three_tables_crud.util.Constants;
 public class SubjectCreateDialogFragment extends DialogFragment {
 
     private EditText subjectNameEditText;
-    private EditText subjectCodeEditText;
-    private EditText subjectCreditEditText;
     private Button createButton;
     private Button cancelButton;
 
@@ -58,10 +56,7 @@ public class SubjectCreateDialogFragment extends DialogFragment {
             @Override
             public void onClick(View view) {
                 String subjectName = subjectNameEditText.getText().toString();
-                int subjectCode = Integer.parseInt(subjectCodeEditText.getText().toString());
-                double subjectCredit = Double.parseDouble(subjectCreditEditText.getText().toString());
-
-                final Subject subject = new Subject(-1, subjectName, subjectCode, subjectCredit);
+                final Subject subject = new Subject(-1, subjectName);
 
                 QueryContract.SubjectQuery query = new SubjectQueryImplementation();
                 query.createSubject(subject, new QueryResponse<Boolean>() {

@@ -116,10 +116,7 @@ public class SubjectQueryImplementation implements QueryContract.SubjectQuery {
     private Subject getSubjectFromCursor(Cursor cursor) {
         int id = cursor.getInt(cursor.getColumnIndex(SUBJECT_ID));
         String subjectName = cursor.getString(cursor.getColumnIndex(SUBJECT_NAME));
-        int subjectCode = cursor.getInt(cursor.getColumnIndex(SUBJECT_CODE));
-        double subjectCredit = cursor.getDouble(cursor.getColumnIndex(SUBJECT_CREDIT));
-
-        return new Subject(id, subjectName, subjectCode, subjectCredit);
+        return new Subject(id, subjectName);
     }
 
     private ContentValues getContentValuesFromSubject(Subject subject) {

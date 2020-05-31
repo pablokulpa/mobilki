@@ -33,22 +33,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Data Structures" />
 
-        <TextView
-            android:id="@+id/courseCodeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/subjectNameTextView"
-            app:layout_constraintTop_toBottomOf="@id/subjectNameTextView"
-            tools:text="@string/course_code" />
-
-        <TextView
-            android:id="@+id/creditTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/subjectNameTextView"
-            app:layout_constraintTop_toBottomOf="@id/courseCodeTextView"
-            tools:text="@string/course_credit" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

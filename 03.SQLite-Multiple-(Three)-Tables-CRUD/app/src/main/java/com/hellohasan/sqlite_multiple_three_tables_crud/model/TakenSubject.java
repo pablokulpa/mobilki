@@ -4,8 +4,8 @@ public class TakenSubject extends Subject{
 
     private boolean isTaken;
 
-    public TakenSubject(int id, String name, int code, double credit, boolean isTaken) {
-        super(id, name, code, credit);
+    public TakenSubject(int id, String name, boolean isTaken) {
+        super(id, name);
         this.isTaken = isTaken;
     }
 

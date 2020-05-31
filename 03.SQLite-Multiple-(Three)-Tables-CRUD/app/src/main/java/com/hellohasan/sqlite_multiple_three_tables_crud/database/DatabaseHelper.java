@@ -40,9 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String CREATE_SUBJECT_TABLE = "CREATE TABLE " + TABLE_SUBJECT + "("
                 + SUBJECT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + SUBJECT_NAME + " TEXT NOT NULL, "
-                + SUBJECT_CODE + " INTEGER NOT NULL UNIQUE, "
-                + SUBJECT_CREDIT + " REAL" //nullable
+                + SUBJECT_NAME + " TEXT NOT NULL "
                 + ")";
 
         String CREATE_TAKEN_SUBJECT_TABLE = "CREATE TABLE " + TABLE_STUDENT_SUBJECT + "("

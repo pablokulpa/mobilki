@@ -18,8 +18,6 @@ class TakenSubjectViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         subjectNameTextView = itemView.findViewById(R.id.subjectNameTextView);
-        courseCodeTextView = itemView.findViewById(R.id.courseCodeTextView);
-        creditTextView = itemView.findViewById(R.id.creditTextView);
         deleteIcon = itemView.findViewById(R.id.deleteIcon);
     }
 }

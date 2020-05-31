@@ -54,10 +54,8 @@ public class TakenSubjectQueryImplementation implements QueryContract.TakenSubje
                 do {
                     int id = cursor.getInt(cursor.getColumnIndex(SUBJECT_ID));
                     String subjectName = cursor.getString(cursor.getColumnIndex(SUBJECT_NAME));
-                    int subjectCode = cursor.getInt(cursor.getColumnIndex(SUBJECT_CODE));
-                    double subjectCredit = cursor.getDouble(cursor.getColumnIndex(SUBJECT_CREDIT));
 
-                    Subject subject = new Subject(id, subjectName, subjectCode, subjectCredit);
+                    Subject subject = new Subject(id, subjectName);
                     subjectList.add(subject);
 
                 } while (cursor.moveToNext());
@@ -79,7 +77,7 @@ public class TakenSubjectQueryImplementation implements QueryContract.TakenSubje
     public void readAllSubjectWithTakenStatus(int studentId, QueryResponse<List<TakenSubject>> response) {
         SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();
 
-        String QUERY = "SELECT s._id, s.name, s.code, s.credit, ss.student_id " +
+        String QUERY = "SELECT s._id, s.name, ss.student_id " +
                 "FROM subject as s LEFT JOIN student_subject as ss ON s._id = ss.subject_id " +
                 "AND ss.student_id = " + studentId;
 
@@ -92,8 +90,6 @@ public class TakenSubjectQueryImplementation implements QueryContract.TakenSubje
                 do {
                     int id = cursor.getInt(cursor.getColumnIndex(SUBJECT_ID));
                     String subjectName = cursor.getString(cursor.getColumnIndex(SUBJECT_NAME));
-                    int subjectCode = cursor.getInt(cursor.getColumnIndex(SUBJECT_CODE));
-                    double subjectCredit = cursor.getDouble(cursor.getColumnIndex(SUBJECT_CREDIT));
 
                     boolean isTaken = false;
 
@@ -101,7 +97,7 @@ public class TakenSubjectQueryImplementation implements QueryContract.TakenSubje
                         isTaken = true;
                     }
 
-                    TakenSubject takenSubject = new TakenSubject(id, subjectName, subjectCode, subjectCredit, isTaken);
+                    TakenSubject takenSubject = new TakenSubject(id, subjectName, isTaken);
                     takenSubjectList.add(takenSubject);
 
                 } while (cursor.moveToNext());
