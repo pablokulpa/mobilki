@@ -44,9 +44,6 @@ public class TakenSubjectListAdapter extends RecyclerView.Adapter<TakenSubjectVi
         final Subject subject = subjectList.get(position);
 
         holder.subjectNameTextView.setText(subject.getName());
-        holder.courseCodeTextView.setText(context.getString(R.string.course_code, subject.getCode()));
-        holder.creditTextView.setText(context.getString(R.string.course_credit, subject.getCredit()));
-
         holder.deleteIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

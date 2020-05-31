@@ -27,8 +27,6 @@ public class SubjectQueryImplementation implements QueryContract.SubjectQuery {
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(SUBJECT_NAME, subject.getName());
-        contentValues.put(SUBJECT_CODE, subject.getCode());
-        contentValues.put(SUBJECT_CREDIT, subject.getCredit());
 
         try {
             long id = sqLiteDatabase.insertOrThrow(TABLE_SUBJECT, null, contentValues);
@@ -128,8 +126,6 @@ public class SubjectQueryImplementation implements QueryContract.SubjectQuery {
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(SUBJECT_NAME, subject.getName());
-        contentValues.put(SUBJECT_CODE, subject.getCode());
-        contentValues.put(SUBJECT_CREDIT, subject.getCredit());
 
         return contentValues;
     }

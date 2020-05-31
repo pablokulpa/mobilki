@@ -48,8 +48,6 @@ public class SubjectCreateDialogFragment extends DialogFragment {
         View view = inflater.inflate(R.layout.fragment_subject_create_dialog, container, false);
 
         subjectNameEditText = view.findViewById(R.id.subjectNameEditText);
-        subjectCodeEditText = view.findViewById(R.id.subjectCodeEditText);
-        subjectCreditEditText = view.findViewById(R.id.subjectCreditEditText);
         createButton = view.findViewById(R.id.createButton);
         cancelButton = view.findViewById(R.id.cancelButton);
 

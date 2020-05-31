@@ -39,8 +39,6 @@ public class SubjectAssignListAdapter extends RecyclerView.Adapter<SubjectAssign
         final TakenSubject subject = takenSubjectList.get(position);
 
         holder.subjectNameTextView.setText(subject.getName());
-        holder.courseCodeTextView.setText(context.getString(R.string.course_code, subject.getCode()));
-        holder.creditTextView.setText(context.getString(R.string.course_credit, subject.getCredit()));
         holder.checkBox.setChecked(subject.isTaken());
 
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

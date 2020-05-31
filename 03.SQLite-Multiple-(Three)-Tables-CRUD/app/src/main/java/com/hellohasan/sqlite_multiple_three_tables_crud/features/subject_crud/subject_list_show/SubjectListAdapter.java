@@ -45,8 +45,6 @@ public class SubjectListAdapter extends RecyclerView.Adapter<SubjectViewHolder> 
         final Subject subject = subjectList.get(position);
 
         holder.subjectNameTextView.setText(subject.getName());
-        holder.courseCodeTextView.setText(context.getString(R.string.course_code, subject.getCode()));
-        holder.creditTextView.setText(context.getString(R.string.course_credit, subject.getCredit()));
 
         holder.editIcon.setOnClickListener(new View.OnClickListener() {
             @Override

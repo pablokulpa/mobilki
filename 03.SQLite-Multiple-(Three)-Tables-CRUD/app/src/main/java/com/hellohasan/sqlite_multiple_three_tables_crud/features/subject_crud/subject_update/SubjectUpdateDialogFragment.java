@@ -54,25 +54,20 @@ public class SubjectUpdateDialogFragment extends DialogFragment {
         getDialog().setTitle(title);
 
         subjectNameEditText = view.findViewById(R.id.subjectNameEditText);
-        subjectCodeEditText = view.findViewById(R.id.subjectCodeEditText);
-        subjectCreditEditText = view.findViewById(R.id.subjectCreditEditText);
+
         updateButton = view.findViewById(R.id.updateButton);
         cancelButton = view.findViewById(R.id.cancelButton);
 
         subjectNameEditText.setText(subject.getName());
-        subjectCodeEditText.setText(String.valueOf(subject.getCode()));
-        subjectCreditEditText.setText(String.valueOf(subject.getCredit()));
+
 
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String subjectName = subjectNameEditText.getText().toString();
-                int subjectCode = Integer.parseInt(subjectCodeEditText.getText().toString());
-                double subjectCredit = Double.parseDouble(subjectCreditEditText.getText().toString());
 
                 subject.setName(subjectName);
-                subject.setCode(subjectCode);
-                subject.setCredit(subjectCredit);
+
 
                 QueryContract.SubjectQuery subjectQuery = new SubjectQueryImplementation();
                 subjectQuery.updateSubject(subject, new QueryResponse<Boolean>() {
