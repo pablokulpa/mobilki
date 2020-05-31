@@ -23,16 +23,10 @@ public class StudentCreateDialogFragment extends DialogFragment {
     private static StudentCrudListener studentCrudListener;
 
     private EditText nameEditText;
-    private EditText registrationEditText;
-    private EditText phoneEditText;
-    private EditText emailEditText;
     private Button createButton;
     private Button cancelButton;
 
     private String nameString = "";
-    private long registrationNumber = -1;
-    private String phoneString = "";
-    private String emailString = "";
 
     public StudentCreateDialogFragment() {
         // Required empty public constructor
@@ -57,9 +51,6 @@ public class StudentCreateDialogFragment extends DialogFragment {
         View view = inflater.inflate(R.layout.fragment_student_create_dialog, container, false);
 
         nameEditText = view.findViewById(R.id.studentNameEditText);
-        registrationEditText = view.findViewById(R.id.registrationEditText);
-        phoneEditText = view.findViewById(R.id.phoneEditText);
-        emailEditText = view.findViewById(R.id.emailEditText);
         createButton = view.findViewById(R.id.createButton);
         cancelButton = view.findViewById(R.id.cancelButton);
 
@@ -70,11 +61,7 @@ public class StudentCreateDialogFragment extends DialogFragment {
             @Override
             public void onClick(View view) {
                 nameString = nameEditText.getText().toString();
-                registrationNumber = Integer.parseInt(registrationEditText.getText().toString());
-                phoneString = phoneEditText.getText().toString();
-                emailString = emailEditText.getText().toString();
-
-                final Student student = new Student(-1, nameString, registrationNumber, phoneString, emailString);
+                final Student student = new Student(-1, nameString);
 
                 QueryContract.StudentQuery studentQuery = new StudentQueryImplementation();
                 studentQuery.createStudent(student, new QueryResponse<Boolean>() {

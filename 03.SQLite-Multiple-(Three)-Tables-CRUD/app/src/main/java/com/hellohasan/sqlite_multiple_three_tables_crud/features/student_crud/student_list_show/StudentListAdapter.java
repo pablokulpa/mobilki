@@ -46,9 +46,6 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentViewHolder> 
         final Student student = studentList.get(position);
 
         holder.nameTextView.setText(student.getName());
-        holder.registrationNumTextView.setText(String.valueOf(student.getRegistrationNumber()));
-        holder.emailTextView.setText(student.getEmail());
-        holder.phoneTextView.setText(student.getPhone());
 
         holder.editImageView.setOnClickListener(new View.OnClickListener() {
             @Override

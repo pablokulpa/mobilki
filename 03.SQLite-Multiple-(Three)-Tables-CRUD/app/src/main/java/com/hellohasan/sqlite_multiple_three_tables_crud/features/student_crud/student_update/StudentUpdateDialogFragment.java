@@ -60,29 +60,17 @@ public class StudentUpdateDialogFragment extends DialogFragment {
         getDialog().setTitle(title);
 
         nameEditText = view.findViewById(R.id.studentNameEditText);
-        registrationEditText = view.findViewById(R.id.registrationEditText);
-        phoneEditText = view.findViewById(R.id.phoneEditText);
-        emailEditText = view.findViewById(R.id.emailEditText);
         updateButton = view.findViewById(R.id.updateButton);
         cancelButton = view.findViewById(R.id.cancelButton);
 
         nameEditText.setText(student.getName());
-        registrationEditText.setText(String.valueOf(student.getRegistrationNumber()));
-        phoneEditText.setText(student.getPhone());
-        emailEditText.setText(student.getEmail());
 
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 nameString = nameEditText.getText().toString();
-                registrationNumber = Integer.parseInt(registrationEditText.getText().toString());
-                phoneString = phoneEditText.getText().toString();
-                emailString = emailEditText.getText().toString();
-
                 student.setName(nameString);
-                student.setRegistrationNumber(registrationNumber);
-                student.setPhone(phoneString);
-                student.setEmail(emailString);
+
 
                 QueryContract.StudentQuery studentQuery = new StudentQueryImplementation();
                 studentQuery.updateStudent(student, new QueryResponse<Boolean>() {

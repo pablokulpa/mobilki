@@ -91,9 +91,6 @@ public class StudentTakenSubjectActivity extends AppCompatActivity implements Ta
             @Override
             public void onSuccess(Student student) {
                 nameTextView.setText(student.getName());
-                registrationNumTextView.setText(String.valueOf(student.getRegistrationNumber()));
-                emailTextView.setText(student.getEmail());
-                phoneTextView.setText(student.getPhone());
             }
 
             @Override
@@ -147,9 +144,7 @@ public class StudentTakenSubjectActivity extends AppCompatActivity implements Ta
 
     private void initialization() {
         nameTextView = findViewById(R.id.nameTextView);
-        registrationNumTextView = findViewById(R.id.registrationNumTextView);
-        emailTextView = findViewById(R.id.emailTextView);
-        phoneTextView = findViewById(R.id.phoneTextView);
+
         actionAddSubject = findViewById(R.id.action_add_subject);
 
         recyclerView = findViewById(R.id.recyclerView);
