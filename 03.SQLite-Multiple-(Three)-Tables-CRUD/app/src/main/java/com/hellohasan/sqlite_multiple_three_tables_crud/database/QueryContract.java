@@ -2,7 +2,6 @@ package com.hellohasan.sqlite_multiple_three_tables_crud.database;
 
 import com.hellohasan.sqlite_multiple_three_tables_crud.model.Student;
 import com.hellohasan.sqlite_multiple_three_tables_crud.model.Subject;
-import com.hellohasan.sqlite_multiple_three_tables_crud.model.TableRowCount;
 import com.hellohasan.sqlite_multiple_three_tables_crud.model.TakenSubject;
 
 import java.util.List;
@@ -31,7 +30,4 @@ public class QueryContract {
         void deleteTakenSubject(int studentId, int subjectId, QueryResponse<Boolean> response);
     }
 
-    public interface TableRowCountQuery {
-        void getTableRowCount(QueryResponse<TableRowCount> response);
-    }
 }

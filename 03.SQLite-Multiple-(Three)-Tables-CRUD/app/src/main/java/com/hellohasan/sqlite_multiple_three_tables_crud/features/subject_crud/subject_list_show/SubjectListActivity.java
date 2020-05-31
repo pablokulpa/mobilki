@@ -46,7 +46,6 @@ public class SubjectListActivity extends AppCompatActivity implements SubjectCru
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(adapter);
 
-        showTableRowCount();
         showSubjectList();
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +61,6 @@ public class SubjectListActivity extends AppCompatActivity implements SubjectCru
     @Override
     public void onSubjectListUpdate(boolean isUpdate) {
         if(isUpdate) {
-            showTableRowCount();
             showSubjectList();
         }
     }
@@ -73,24 +71,6 @@ public class SubjectListActivity extends AppCompatActivity implements SubjectCru
         return super.onSupportNavigateUp();
     }
 
-    private void showTableRowCount() {
-        QueryContract.TableRowCountQuery query = new TableRowCountQueryImplementation();
-        query.getTableRowCount(new QueryResponse<TableRowCount>() {
-            @Override
-            public void onSuccess(TableRowCount data) {
-                studentCountTextView.setText(getString(R.string.student_count, data.getStudentRow()));
-                subjectCountTextView.setText(getString(R.string.subject_count, data.getSubjectRow()));
-                takenSubjectCountTextView.setText(getString(R.string.taken_subject_count, data.getTakenSubjectRow()));
-            }
-
-            @Override
-            public void onFailure(String message) {
-                studentCountTextView.setText(getString(R.string.table_row_count_failed));
-                subjectCountTextView.setText(message);
-                takenSubjectCountTextView.setText("");
-            }
-        });
-    }
 
     private void showSubjectList(){
         QueryContract.SubjectQuery query = new SubjectQueryImplementation();
@@ -117,9 +97,6 @@ public class SubjectListActivity extends AppCompatActivity implements SubjectCru
         recyclerView = findViewById(R.id.recyclerView);
         noDataFoundTextView = findViewById(R.id.noDataFoundTextView);
 
-        studentCountTextView = findViewById(R.id.studentCount);
-        subjectCountTextView = findViewById(R.id.subjectCount);
-        takenSubjectCountTextView = findViewById(R.id.takenSubjectCount);
 
         fab = findViewById(R.id.fab);
     }

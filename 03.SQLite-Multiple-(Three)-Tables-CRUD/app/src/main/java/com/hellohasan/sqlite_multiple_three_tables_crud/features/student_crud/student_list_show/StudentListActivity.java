@@ -18,7 +18,6 @@ import com.hellohasan.sqlite_multiple_three_tables_crud.features.student_crud.st
 import com.hellohasan.sqlite_multiple_three_tables_crud.features.student_crud.StudentCrudListener;
 import com.hellohasan.sqlite_multiple_three_tables_crud.features.subject_crud.subject_list_show.SubjectListActivity;
 import com.hellohasan.sqlite_multiple_three_tables_crud.model.Student;
-import com.hellohasan.sqlite_multiple_three_tables_crud.model.TableRowCount;
 import com.hellohasan.sqlite_multiple_three_tables_crud.util.Constants;
 
 import java.util.ArrayList;
@@ -62,7 +61,6 @@ public class StudentListActivity extends AppCompatActivity implements StudentCru
     @Override
     protected void onResume() {
         super.onResume();
-        showTableRowCount();
     }
 
     @Override
@@ -85,7 +83,6 @@ public class StudentListActivity extends AppCompatActivity implements StudentCru
     public void onStudentListUpdate(boolean isUpdated) {
         if(isUpdated) {
             showStudentList();
-            showTableRowCount();
         }
     }
 
@@ -110,32 +107,11 @@ public class StudentListActivity extends AppCompatActivity implements StudentCru
         });
     }
 
-    private void showTableRowCount() {
-        QueryContract.TableRowCountQuery query = new TableRowCountQueryImplementation();
-        query.getTableRowCount(new QueryResponse<TableRowCount>() {
-            @Override
-            public void onSuccess(TableRowCount data) {
-                studentCountTextView.setText(getString(R.string.student_count, data.getStudentRow()));
-                subjectCountTextView.setText(getString(R.string.subject_count, data.getSubjectRow()));
-                takenSubjectCountTextView.setText(getString(R.string.taken_subject_count, data.getTakenSubjectRow()));
-            }
-
-            @Override
-            public void onFailure(String message) {
-                studentCountTextView.setText(getString(R.string.table_row_count_failed));
-                subjectCountTextView.setText(message);
-                takenSubjectCountTextView.setText("");
-            }
-        });
-    }
 
     private void initialization(){
         recyclerView = findViewById(R.id.recyclerView);
         noDataFoundTextView = findViewById(R.id.noDataFoundTextView);
         fab = findViewById(R.id.fab);
 
-        studentCountTextView = findViewById(R.id.studentCount);
-        subjectCountTextView = findViewById(R.id.subjectCount);
-        takenSubjectCountTextView = findViewById(R.id.takenSubjectCount);
     }
 }
